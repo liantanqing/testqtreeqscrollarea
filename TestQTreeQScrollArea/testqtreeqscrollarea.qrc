@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/TestQTreeQScrollArea">
+        <file>MutilProductionTool.qss</file>
+        <file>Resources/switch_off.png</file>
+        <file>Resources/switch_on.png</file>
+        <file>Resources/switchOn.png</file>
+        <file>Resources/switchOff.png</file>
+        <file>Resources/radioOff.png</file>
+        <file>Resources/radioOn.png</file>
+        <file>Resources/qrcode.png</file>
+        <file>Resources/database.png</file>
+        <file>Resources/settingsQTree.png</file>
+    </qresource>
+    <qresource prefix="/customTitle">
+        <file>Resources/MyTitle/close.png</file>
+        <file>Resources/MyTitle/min.png</file>
+        <file>Resources/MyTitle.css</file>
+    </qresource>
+</RCC>

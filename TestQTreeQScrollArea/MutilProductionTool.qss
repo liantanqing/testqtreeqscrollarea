@@ -1,0 +1,141 @@
+/**************主界面样式*****************/
+QMainWindow#testQTreeQScrollArea{
+       border:1px solid rgb(255, 255, 255);
+       background: rgb(234, 234, 234);
+}
+
+QGroupBox#functionCustomGroupBox, #machineControlGroupBox, #autoMachineIP_PortGroupBox, #databaseConnectGroupBox
+, #qrcodeGroupBox
+{
+    border: 2px solid green;
+	margin-top: 1.5ex; /*可调整标题下沉问题*/
+    border-radius: 5px;
+	font-size:14px;
+	font-family:"SimHei";
+}
+
+QGroupBox::title {
+	subcontrol-origin: margin;
+	subcontrol-position: top left;
+	margin-left: 0px;
+	font-family:"SimHei";
+	color:rgb(21, 147, 46);
+	left:10px;
+	padding:0 1px;
+}
+/****************************************************************/
+QTreeView{  
+    background-color: rgb(234, 234, 234);  
+    font-size:14px;
+	font-family:"SimHei";
+    show-decoration-selected: 1;	
+}  
+ /*item*/ 
+QTreeView::item{
+    /*与其他选项间的距离*/	
+    margin:8px;  
+    background: rgb(234, 234, 234);  
+    background-clip: margin;
+	border:none;
+	font-family:"SimHei";
+} 
+QTreeView::item:selected 
+{          
+    background-color: rgb(63, 147, 168);      
+}   
+                            
+QTreeView::item:hover {  
+    background-color: rgb(69, 187, 217);  
+}  
+  
+QTreeView::item:selected:active{  
+    background: rgb(21, 147, 46);
+    border: 0px; 	
+}  
+  
+QTreeView::item:selected:!active {  
+    background: rgb(21, 147, 46); 
+    border: 0px; 	
+}
+
+/*branch*/
+QTreeWidget::branch{  
+    border-image: none;  
+    image: url(:/TestQTreeQScrollArea/Resources/settingsQTree.png);  
+}  
+
+QTreeView::branch:hover {  
+    background: rgb(69, 187, 217);;  
+}  
+QTreeView::branch:selected:active{  
+    background: rgb(21, 147, 46);	
+}  
+  
+QTreeView::branch:selected:!active {  
+    background: rgb(21, 147, 46);  
+}                                               
+
+/***********************************************************/
+QScrollArea
+{
+	background-color: rgb(234, 234, 234);
+	font-size:17px;
+	color: rgb(255, 255, 255);
+	border:none;
+}
+
+QLineEdit
+{
+    border: 1px solid gray;
+    background-color: rgb(240, 240, 240);
+}
+
+QCheckBox {
+    spacing: 5px;
+}
+
+QCheckBox::indicator {
+    width: 32px;
+    height: 32px;
+}
+
+QCheckBox::indicator:unchecked {
+    image: url(:/TestQTreeQScrollArea/Resources/switchOff.png);
+}
+
+QCheckBox::indicator:checked {
+    image: url(:/TestQTreeQScrollArea/Resources/switchOn.png);
+}
+
+QRadioButton::indicator {
+    width: 13px;
+    height: 13px;
+}
+
+QRadioButton::indicator::unchecked {
+    image: url(:/TestQTreeQScrollArea/Resources/radioOff.png);
+}
+
+QRadioButton::indicator::checked {
+    image: url(:/TestQTreeQScrollArea/Resources/radioOn.png);
+}
+
+/*---------------------------------------------------------------*/
+QPushButton#SelectDirectory, #testConnectionPushButton
+{
+    background-color: rgb(240, 240, 240);
+	font-size:14px;
+    border: 2px solid #8f8f91;
+    border-radius: 4px;
+}
+
+QPushButton#SelectDirectory:hover, #testConnectionPushButton:hover
+{
+       background-color: rgb(255, 255, 255);
+       border-color: rgb(21, 127, 46);
+}
+
+
+
+
+
