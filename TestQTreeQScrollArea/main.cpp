@@ -17,9 +17,9 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     //LoadQSSStyleSheet::setStyle(":/TestQTreeQScrollArea/MutilProductionTool.qss");
     QTranslator translator;
-    translator.load("F:/SpecialFunctionCode/TestQTreeQScrollArea/TestQTreeQScrollArea/testqtreeqscrollarea_zh.qm");
+    translator.load("F:/SpecialFunctionCode/testqtreeqscrollareaqss/testqtreeqscrollarea/TestQTreeQScrollArea/testqtreeqscrollarea_zh.qm");
     a.installTranslator(&translator);
-    LoadQSSStyleSheet::setStyle("F:/SpecialFunctionCode/TestQTreeQScrollArea/TestQTreeQScrollArea/MutilProductionTool.qss");
+    LoadQSSStyleSheet::setStyle("F:/SpecialFunctionCode/testqtreeqscrollareaqss/testqtreeqscrollarea/TestQTreeQScrollArea/MutilProductionTool.qss");
     TestQTreeQScrollArea w;
     w.show();
     return a.exec();

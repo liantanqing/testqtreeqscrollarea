@@ -46,6 +46,33 @@ void MyTitleBar::initControl()
     m_OneSplitScreen  = new QPushButton;     //1 分屏
     m_TwoSplitScreen  = new QPushButton;     //2 分屏
     m_FourSplitScreen = new QPushButton;    //4 分屏
+    m_MenuButton = new QPushButton;
+    //m_MenuButton->setStyleSheet("QPushButton{border-image:url(:/TestQTreeQScrollArea/Resources/menu_gray3.png);}"
+    //                            "QPushButton:hover{border-image:url(:/TestQTreeQScrollArea/Resources/menu_green3.png);}"
+    //                            "QPushButton::menu-indicator{image:none;}"//去掉倒三角
+    //                            "QPushButton::menu-indicator#helpMenuAction{image:url(:/TestQTreeQScrollArea/Resources/help.png);}"); 
+    m_MenuButton->setFixedSize(QSize(BUTTON_WIDTH, BUTTON_HEIGHT)); 
+    m_MenuButton->setObjectName("menuButton");
+    QMenu *mymenu=new QMenu;  
+    QAction *click      = new QAction(tr("Menu Button")    ,this);
+    QAction *about      = new QAction(tr("About")          ,this);
+    QAction *switchLang = new QAction(tr("Language")       ,this);
+    QAction *Settings   = new QAction(tr("Setting")        ,this);
+    QAction *help       = new QAction(tr("Help")           ,this);
+    help      ->setObjectName("helpMenuAction");
+    help      ->setIcon(QIcon(":/TestQTreeQScrollArea/Resources/help.png"));
+    switchLang->setIcon(QIcon(":/TestQTreeQScrollArea/Resources/Language_Switch.png"));
+    //about     ->setIcon(QIcon(":/TestQTreeQScrollArea/Resources/about.png"));
+    m_MenuButton->setStyleSheet("QPushButton{border-image:url(:/TestQTreeQScrollArea/Resources/menu_gray3.png);}"
+        "QPushButton:hover{border-image:url(:/TestQTreeQScrollArea/Resources/menu_green3.png);}"
+        "QPushButton::menu-indicator{image:none;}");//去掉倒三角
+       
+    mymenu->addAction(click);
+    mymenu->addAction(about);
+    mymenu->addAction(switchLang);
+    mymenu->addAction(Settings);
+    mymenu->addAction(help);
+    m_MenuButton->setMenu(mymenu);  
 
 	m_pButtonMin->setFixedSize(QSize(BUTTON_WIDTH, BUTTON_HEIGHT));
 	m_pButtonRestore->setFixedSize(QSize(BUTTON_WIDTH, BUTTON_HEIGHT));
@@ -112,6 +139,7 @@ void MyTitleBar::initControl()
 	//mylayout->addWidget(m_pButtonMin);
 	//mylayout->addWidget(m_pButtonRestore);
 	//mylayout->addWidget(m_pButtonMax);
+    mylayout->addWidget(m_MenuButton);
 	mylayout->addWidget(m_pButtonClose);
 
 	mylayout->setContentsMargins(5, 0, 0, 0);

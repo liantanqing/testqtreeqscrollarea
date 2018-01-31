@@ -30,7 +30,8 @@ public:
     QPushButton* m_OneSplitScreen;     //1 分屏
     QPushButton* m_TwoSplitScreen;     //2 分屏
     QPushButton* m_FourSplitScreen;    //4 分屏
-    QPushButton* m_StartTest;    //4 分屏
+    QPushButton* m_StartTest;          //4 分屏
+    QPushButton* m_MenuButton;         //主菜单
 	// 设置标题栏背景色;
 	void setBackgroundColor(int r, int g, int b);
 	// 设置标题栏图标;
@@ -81,7 +82,6 @@ private:
 	QLabel* m_pTitleContent;			// 标题栏内容;
     QLabel* m_Space;
     QLabel* m_Space2;
-    QPushButton* m_MenuButton;
 	QPushButton* m_pButtonMin;			// 最小化按钮;
 	QPushButton* m_pButtonRestore;		// 最大化还原按钮;
 	QPushButton* m_pButtonMax;			// 最大化按钮;

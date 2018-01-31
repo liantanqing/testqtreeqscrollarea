@@ -10,6 +10,11 @@
         <file>Resources/qrcode.png</file>
         <file>Resources/database.png</file>
         <file>Resources/settingsQTree.png</file>
+        <file>Resources/menu_gray3.png</file>
+        <file>Resources/menu_green3.png</file>
+        <file>Resources/help.png</file>
+        <file>Resources/Language_Switch.png</file>
+        <file>Resources/about.png</file>
     </qresource>
     <qresource prefix="/customTitle">
         <file>Resources/MyTitle/close.png</file>

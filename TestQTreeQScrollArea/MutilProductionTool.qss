@@ -36,26 +36,27 @@ QTreeView::item{
     margin:8px;  
     background: rgb(234, 234, 234);  
     background-clip: margin;
-	border:none;
+	border-style:none;
 	font-family:"SimHei";
 } 
 QTreeView::item:selected 
 {          
-    background-color: rgb(63, 147, 168);      
+    background-color: rgb(63, 147, 168);
+	border-style:none;
 }   
-                            
+                          
 QTreeView::item:hover {  
     background-color: rgb(69, 187, 217);  
 }  
   
 QTreeView::item:selected:active{  
     background: rgb(21, 147, 46);
-    border: 0px; 	
+    border-style:none;	
 }  
   
 QTreeView::item:selected:!active {  
     background: rgb(21, 147, 46); 
-    border: 0px; 	
+    border: none; 	
 }
 
 /*branch*/
