@@ -38,7 +38,7 @@ TestQTreeQScrollArea::TestQTreeQScrollArea(QWidget *parent)
     DomeKeyHLayout->addWidget(checkBoxDomeKeyLab);
     DomeKeyHLayout->addWidget(checkBoxDomeKeyTest);
 
-    QLabel *PressRubberLab= new QLabel(tr("Press Rubber"));
+    QLabel *PressRubberLab= new QLabel(tr("Connect IC Automatic Test"));
     checkBoxPressRubber       = new QCheckBox;
     QHBoxLayout *PressRubberHLayout = new QHBoxLayout;
     PressRubberHLayout->addWidget(PressRubberLab);
@@ -140,7 +140,11 @@ TestQTreeQScrollArea::TestQTreeQScrollArea(QWidget *parent)
     databaseScrollArea                              = new QScrollArea(this);
     QGroupBox       *databaseConnectGroupBox        = new QGroupBox(tr("DataBase Connection"), databaseScrollArea);
     databaseConnectGroupBox->setObjectName("databaseConnectGroupBox");
+    QHBoxLayout     *enableDatabaseHBox             = new QHBoxLayout;
+    QLabel          *enableDatabaseLabel            = new QLabel(QString(tr("Enable Database")));
     QCheckBox       *checkBoxEnableDatabaseFunction = new QCheckBox;
+    enableDatabaseHBox->addWidget(enableDatabaseLabel);
+    enableDatabaseHBox->addWidget(checkBoxEnableDatabaseFunction);
     QHBoxLayout     *ipaddressHBox                  = new QHBoxLayout;
     QLabel          *ipaddresslabel                 = new QLabel(QString(tr("IP Address:   ")));
     QLineEdit       *ipaddressLineEdit              = new QLineEdit;
@@ -174,6 +178,7 @@ TestQTreeQScrollArea::TestQTreeQScrollArea(QWidget *parent)
     testConnectionHBox->addWidget(testConnectionPushButton);
     
     QVBoxLayout     *vDatabaseGroupBoxVLayout            = new QVBoxLayout;
+    vDatabaseGroupBoxVLayout->addLayout(enableDatabaseHBox);
     vDatabaseGroupBoxVLayout->addLayout(ipaddressHBox);
     vDatabaseGroupBoxVLayout->addLayout(databasenameHBox);
     vDatabaseGroupBoxVLayout->addLayout(tablenameHBox);
@@ -190,7 +195,11 @@ TestQTreeQScrollArea::TestQTreeQScrollArea(QWidget *parent)
     qrcodeScrollArea                    = new QScrollArea(this);
     QGroupBox *qrcodeGroupBox           = new QGroupBox     ((tr("Qr Code: ")), qrcodeScrollArea);
     qrcodeGroupBox->setObjectName("qrcodeGroupBox");
-    checkBoxEnableQr                    = new QCheckBox(tr("EnableQrCodeScan"));
+    QHBoxLayout     *enableQrcodeHBox             = new QHBoxLayout;
+    QLabel          *enableQrcodeLabel            = new QLabel(QString(tr("Enable QrCode")));
+    checkBoxEnableQr = new QCheckBox;
+    enableQrcodeHBox->addWidget(enableQrcodeLabel);
+    enableQrcodeHBox->addWidget(checkBoxEnableQr);
     QHBoxLayout *filePathHBox           = new QHBoxLayout;
     filePathLabel                       = new QLabel(QString(tr("File Path:    ")));
     saveQRcodeFolderPath                = new QLineEdit;
@@ -212,7 +221,7 @@ TestQTreeQScrollArea::TestQTreeQScrollArea(QWidget *parent)
     qrcodePrefixHBox->addWidget(qrcodePrefixLabel);
     qrcodePrefixHBox->addWidget(qrcodePrefix);
     QVBoxLayout     *vQrCodeGroupBoxVLayout            = new QVBoxLayout;
-    vQrCodeGroupBoxVLayout->addWidget(checkBoxEnableQr);
+    vQrCodeGroupBoxVLayout->addLayout(enableQrcodeHBox);
     vQrCodeGroupBoxVLayout->addLayout(filePathHBox);
     vQrCodeGroupBoxVLayout->addLayout(qrcodeLengthHBox);
     vQrCodeGroupBoxVLayout->addLayout(qrcodePrefixLengthHBox);
@@ -241,8 +250,21 @@ TestQTreeQScrollArea::TestQTreeQScrollArea(QWidget *parent)
     QObject::connect(semiautomaticModel, &QRadioButton::toggled,    this, &TestQTreeQScrollArea::onSemiautomaticModelRadioButton);
     QObject::connect(manualModel,        &QRadioButton::toggled,    this, &TestQTreeQScrollArea::onManualModelRadioButton);
 
+    QObject::connect(checkBoxSavePic,       &QCheckBox::stateChanged,  this, &TestQTreeQScrollArea::onSavePictrueStateChanged);
+    QObject::connect(checkBoxTestPinSwitch, &QCheckBox::stateChanged,  this, &TestQTreeQScrollArea::onTestPinSwitchStateChanged);
+    QObject::connect(checkBoxPressRubber,   &QCheckBox::stateChanged,  this, &TestQTreeQScrollArea::onPressRubberStateChanged);
+    QObject::connect(checkBoxDomeKeyTest,   &QCheckBox::stateChanged,  this, &TestQTreeQScrollArea::onDomeKeyStateChanged);
+    QObject::connect(toolButton,            &QToolButton::released,    this, &TestQTreeQScrollArea::onTestDataFolderPathButtonClicked);
+    QObject::connect(autoMachineIpLineEdit,     &QLineEdit::editingFinished, this, &TestQTreeQScrollArea::onautoMachineIpLineEditFinished);
+    QObject::connect(autoMachinePortLineEdit,   &QLineEdit::editingFinished, this, &TestQTreeQScrollArea::onautoMachinePortLineEditFinished);
+    QObject::connect(autoMachineIpLineEdit_2,   &QLineEdit::editingFinished, this, &TestQTreeQScrollArea::onautoMachineIpLineEdit_2Finished);
+    QObject::connect(autoMachinePortLineEdit_2, &QLineEdit::editingFinished, this, &TestQTreeQScrollArea::onautoMachinePortLineEdit_2Finished);
+    QObject::connect(autoMachineIpLineEdit_3,   &QLineEdit::editingFinished, this, &TestQTreeQScrollArea::onautoMachineIpLineEdit_3Finished);
+    QObject::connect(autoMachinePortLineEdit_3, &QLineEdit::editingFinished, this, &TestQTreeQScrollArea::onautoMachinePortLineEdit_3Finished);
+    QObject::connect(autoMachineIpLineEdit_4,   &QLineEdit::editingFinished, this, &TestQTreeQScrollArea::onautoMachineIpLineEdit_4Finished);
+    QObject::connect(autoMachinePortLineEdit_4, &QLineEdit::editingFinished, this, &TestQTreeQScrollArea::onautoMachinePortLineEdit_4Finished);
 }
-
+ 
 TestQTreeQScrollArea::~TestQTreeQScrollArea()
 {
     //delete qtreeWidget;
@@ -271,27 +293,6 @@ void TestQTreeQScrollArea::onItemClicked(QTreeWidgetItem * item, int column)
        qrcodeScrollArea->hide();
        databaseScrollArea->hide();
    }
-}
-
-void TestQTreeQScrollArea::onNetworkModeRadioButton(bool checkState)
-{
-    if (checkState)
-    {
-        autoMachineIP_Port->show();
-    }else
-    {
-        autoMachineIP_Port->hide();
-    }
-}
-
-void TestQTreeQScrollArea::onSemiautomaticModelRadioButton(bool checkState)
-{
-
-}
-
-void TestQTreeQScrollArea::onManualModelRadioButton(bool checkState)
-{
-
 }
 
 void TestQTreeQScrollArea::initTitleBar()
@@ -324,4 +325,114 @@ void TestQTreeQScrollArea::onButtonMinClicked()
 void TestQTreeQScrollArea::onButtonCloseClicked()
 {
     close();
+}
+
+void TestQTreeQScrollArea::onSavePictrueStateChanged()
+{
+}
+
+void TestQTreeQScrollArea::onTestPinSwitchStateChanged(int state)
+{
+    switch(state)
+    {
+    case 0:
+        //globalConfig->setTestPinCheckBoxState(false);
+        break;
+    case 2:
+        //globalConfig->setTestPinCheckBoxState(true);
+        break;
+    default:
+        break;
+    }
+}
+
+void TestQTreeQScrollArea::onPressRubberStateChanged()
+{
+}
+
+void TestQTreeQScrollArea::onDomeKeyStateChanged()
+{
+    //globalConfig->setDomeKeyTest((settingsUi->checkBoxDomeKeyTest ->checkState() == Qt::Checked ? true : false));
+}
+
+void TestQTreeQScrollArea::onTestDataFolderPathButtonClicked()
+{
+    QString tempPath = testDataFolderPath->text();
+    QDir temp;
+    QString fileName;
+    if(temp.exists(tempPath)){
+        fileName = QFileDialog::getExistingDirectory(this, tr("Save File Path"), tempPath, QFileDialog::ShowDirsOnly|QFileDialog::DontConfirmOverwrite);
+    }else{
+        fileName = QFileDialog::getExistingDirectory(this, tr("Save File Path"), QApplication::applicationDirPath(), QFileDialog::ShowDirsOnly|QFileDialog::DontConfirmOverwrite);
+    }
+
+    if(!fileName.isEmpty()){
+        testDataFolderPath->setText(fileName);
+        //globalConfig->setSettingsDataPath(fileName);
+    }
+
+}
+
+void TestQTreeQScrollArea::onautoMachineIpLineEditFinished()
+{
+
+    //globalConfig->setAutoMachineIP(settingsUi->autoMachineIpLineEdit->text());
+}
+
+void TestQTreeQScrollArea::onautoMachinePortLineEditFinished()
+{
+    //globalConfig->setAutoMachinePort(settingsUi->autoMachinePortLineEdit->text());
+}
+
+void TestQTreeQScrollArea::onautoMachineIpLineEdit_2Finished()
+{
+    //globalConfig->setAutoMachine2IP(settingsUi->autoMachineIpLineEdit_2->text());
+}
+
+void TestQTreeQScrollArea::onautoMachinePortLineEdit_2Finished()
+{
+    //globalConfig->setAutoMachine2Port(settingsUi->autoMachinePortLineEdit_2->text());
+}
+
+void TestQTreeQScrollArea::onautoMachineIpLineEdit_3Finished()
+{
+    //globalConfig->setAutoMachine3IP(settingsUi->autoMachineIpLineEdit_3->text());
+}
+
+void TestQTreeQScrollArea::onautoMachinePortLineEdit_3Finished()
+{
+    //globalConfig->setAutoMachine3Port(settingsUi->autoMachinePortLineEdit_3->text());
+}
+
+void TestQTreeQScrollArea::onautoMachineIpLineEdit_4Finished()
+{
+    //globalConfig->setAutoMachine4IP(settingsUi->autoMachineIpLineEdit_4->text());
+}
+
+void TestQTreeQScrollArea::onautoMachinePortLineEdit_4Finished()
+{
+    //globalConfig->setAutoMachine4Port(settingsUi->autoMachinePortLineEdit_4->text());
+}
+
+
+
+void TestQTreeQScrollArea::onManualModelRadioButton(bool checkState)
+{
+
+}
+
+void TestQTreeQScrollArea::onSemiautomaticModelRadioButton(bool checkState)
+{
+
+}
+
+void TestQTreeQScrollArea::onNetworkModeRadioButton(bool checkState)
+{
+    if (checkState)
+    {
+        autoMachineIP_Port->show();
+    }else
+    {
+        autoMachineIP_Port->hide();
+    }
 }

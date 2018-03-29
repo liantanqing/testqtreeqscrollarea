@@ -14,6 +14,8 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QToolButton>
+#include <QtCore/QDir>
+#include <QtWidgets/QFileDialog>
 class TestQTreeQScrollArea : public QMainWindow
 {
     Q_OBJECT
@@ -30,6 +32,31 @@ public Q_SLOTS:
     void initTitleBar();
     void onButtonMinClicked();
     void onButtonCloseClicked();
+
+    void onSavePictrueStateChanged();
+    void onTestPinSwitchStateChanged(int state);
+    void onPressRubberStateChanged();
+    void onDomeKeyStateChanged();
+    void onTestDataFolderPathButtonClicked();
+    void onautoMachineIpLineEditFinished();
+    void onautoMachinePortLineEditFinished();
+    void onautoMachineIpLineEdit_2Finished();
+    void onautoMachinePortLineEdit_2Finished();
+    void onautoMachineIpLineEdit_3Finished();
+    void onautoMachinePortLineEdit_3Finished();
+    void onautoMachineIpLineEdit_4Finished();
+    void onautoMachinePortLineEdit_4Finished();
+
+    //void onEnableQrStateChanged();
+    //void onToolModeComboBoxIndexChanged(int index);
+    //void onTestConnectionPushButton();
+    //void onEnableDatabaseStateChanged();
+    //void onSaveQRcodeFolderPathEditingFinished();
+    //void onQrcodeLengthEditingFinished();
+    //void onQrcodePrefixLengthEditingFinished();
+    //void onQrcodePrefixEditingFinished();
+    
+
 private:
     Ui::TestQTreeQScrollAreaClass ui;
     MyTitleBar* m_titleBar;
