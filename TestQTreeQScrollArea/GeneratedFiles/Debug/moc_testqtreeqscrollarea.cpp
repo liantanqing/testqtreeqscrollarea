@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_TestQTreeQScrollArea_t {
-    QByteArrayData data[27];
-    char stringdata0[629];
+    QByteArrayData data[30];
+    char stringdata0[708];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -55,7 +55,10 @@ QT_MOC_LITERAL(22, 453, 35), // "onautoMachinePortLineEdit_2Fi..."
 QT_MOC_LITERAL(23, 489, 33), // "onautoMachineIpLineEdit_3Fini..."
 QT_MOC_LITERAL(24, 523, 35), // "onautoMachinePortLineEdit_3Fi..."
 QT_MOC_LITERAL(25, 559, 33), // "onautoMachineIpLineEdit_4Fini..."
-QT_MOC_LITERAL(26, 593, 35) // "onautoMachinePortLineEdit_4Fi..."
+QT_MOC_LITERAL(26, 593, 35), // "onautoMachinePortLineEdit_4Fi..."
+QT_MOC_LITERAL(27, 629, 28), // "onEnableDatabaseStateChanged"
+QT_MOC_LITERAL(28, 658, 26), // "onTestConnectionPushButton"
+QT_MOC_LITERAL(29, 685, 22) // "onEnableQrStateChanged"
 
     },
     "TestQTreeQScrollArea\0onItemClicked\0\0"
@@ -76,7 +79,10 @@ QT_MOC_LITERAL(26, 593, 35) // "onautoMachinePortLineEdit_4Fi..."
     "onautoMachineIpLineEdit_3Finished\0"
     "onautoMachinePortLineEdit_3Finished\0"
     "onautoMachineIpLineEdit_4Finished\0"
-    "onautoMachinePortLineEdit_4Finished"
+    "onautoMachinePortLineEdit_4Finished\0"
+    "onEnableDatabaseStateChanged\0"
+    "onTestConnectionPushButton\0"
+    "onEnableQrStateChanged"
 };
 #undef QT_MOC_LITERAL
 
@@ -86,7 +92,7 @@ static const uint qt_meta_data_TestQTreeQScrollArea[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      20,   14, // methods
+      23,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -94,26 +100,29 @@ static const uint qt_meta_data_TestQTreeQScrollArea[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    2,  114,    2, 0x0a /* Public */,
-       6,    1,  119,    2, 0x0a /* Public */,
-       8,    1,  122,    2, 0x0a /* Public */,
-       9,    1,  125,    2, 0x0a /* Public */,
-      10,    0,  128,    2, 0x0a /* Public */,
-      11,    0,  129,    2, 0x0a /* Public */,
-      12,    0,  130,    2, 0x0a /* Public */,
-      13,    0,  131,    2, 0x0a /* Public */,
-      14,    1,  132,    2, 0x0a /* Public */,
-      16,    0,  135,    2, 0x0a /* Public */,
-      17,    0,  136,    2, 0x0a /* Public */,
-      18,    0,  137,    2, 0x0a /* Public */,
-      19,    0,  138,    2, 0x0a /* Public */,
-      20,    0,  139,    2, 0x0a /* Public */,
-      21,    0,  140,    2, 0x0a /* Public */,
-      22,    0,  141,    2, 0x0a /* Public */,
-      23,    0,  142,    2, 0x0a /* Public */,
-      24,    0,  143,    2, 0x0a /* Public */,
-      25,    0,  144,    2, 0x0a /* Public */,
-      26,    0,  145,    2, 0x0a /* Public */,
+       1,    2,  129,    2, 0x0a /* Public */,
+       6,    1,  134,    2, 0x0a /* Public */,
+       8,    1,  137,    2, 0x0a /* Public */,
+       9,    1,  140,    2, 0x0a /* Public */,
+      10,    0,  143,    2, 0x0a /* Public */,
+      11,    0,  144,    2, 0x0a /* Public */,
+      12,    0,  145,    2, 0x0a /* Public */,
+      13,    0,  146,    2, 0x0a /* Public */,
+      14,    1,  147,    2, 0x0a /* Public */,
+      16,    0,  150,    2, 0x0a /* Public */,
+      17,    0,  151,    2, 0x0a /* Public */,
+      18,    0,  152,    2, 0x0a /* Public */,
+      19,    0,  153,    2, 0x0a /* Public */,
+      20,    0,  154,    2, 0x0a /* Public */,
+      21,    0,  155,    2, 0x0a /* Public */,
+      22,    0,  156,    2, 0x0a /* Public */,
+      23,    0,  157,    2, 0x0a /* Public */,
+      24,    0,  158,    2, 0x0a /* Public */,
+      25,    0,  159,    2, 0x0a /* Public */,
+      26,    0,  160,    2, 0x0a /* Public */,
+      27,    0,  161,    2, 0x0a /* Public */,
+      28,    0,  162,    2, 0x0a /* Public */,
+      29,    0,  163,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void, 0x80000000 | 3, QMetaType::Int,    4,    5,
@@ -125,6 +134,9 @@ static const uint qt_meta_data_TestQTreeQScrollArea[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,   15,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -166,6 +178,9 @@ void TestQTreeQScrollArea::qt_static_metacall(QObject *_o, QMetaObject::Call _c,
         case 17: _t->onautoMachinePortLineEdit_3Finished(); break;
         case 18: _t->onautoMachineIpLineEdit_4Finished(); break;
         case 19: _t->onautoMachinePortLineEdit_4Finished(); break;
+        case 20: _t->onEnableDatabaseStateChanged(); break;
+        case 21: _t->onTestConnectionPushButton(); break;
+        case 22: _t->onEnableQrStateChanged(); break;
         default: ;
         }
     }
@@ -196,13 +211,13 @@ int TestQTreeQScrollArea::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 20)
+        if (_id < 23)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 20;
+        _id -= 23;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 20)
+        if (_id < 23)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 20;
+        _id -= 23;
     }
     return _id;
 }

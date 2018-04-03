@@ -263,6 +263,9 @@ TestQTreeQScrollArea::TestQTreeQScrollArea(QWidget *parent)
     QObject::connect(autoMachinePortLineEdit_3, &QLineEdit::editingFinished, this, &TestQTreeQScrollArea::onautoMachinePortLineEdit_3Finished);
     QObject::connect(autoMachineIpLineEdit_4,   &QLineEdit::editingFinished, this, &TestQTreeQScrollArea::onautoMachineIpLineEdit_4Finished);
     QObject::connect(autoMachinePortLineEdit_4, &QLineEdit::editingFinished, this, &TestQTreeQScrollArea::onautoMachinePortLineEdit_4Finished);
+    QObject::connect(checkBoxEnableDatabaseFunction, &QCheckBox::stateChanged, this, &TestQTreeQScrollArea::onEnableDatabaseStateChanged);
+    QObject::connect(testConnectionPushButton,       &QPushButton::clicked,    this, &TestQTreeQScrollArea::onTestConnectionPushButton);
+    QObject::connect(checkBoxEnableQr,               &QCheckBox::stateChanged, this, &TestQTreeQScrollArea::onEnableQrStateChanged);
 }
  
 TestQTreeQScrollArea::~TestQTreeQScrollArea()
@@ -414,8 +417,6 @@ void TestQTreeQScrollArea::onautoMachinePortLineEdit_4Finished()
     //globalConfig->setAutoMachine4Port(settingsUi->autoMachinePortLineEdit_4->text());
 }
 
-
-
 void TestQTreeQScrollArea::onManualModelRadioButton(bool checkState)
 {
 
@@ -435,4 +436,46 @@ void TestQTreeQScrollArea::onNetworkModeRadioButton(bool checkState)
     {
         autoMachineIP_Port->hide();
     }
+}
+
+void TestQTreeQScrollArea::onEnableDatabaseStateChanged()
+{
+    bool enableDatabase = checkBoxEnableDatabaseFunction->checkState();
+    //globalConfig->setEnableDatabaseState(enableDatabase);
+    //emit sigDatabaseEnableState(enableDatabase);
+}
+
+void TestQTreeQScrollArea::onTestConnectionPushButton()
+{
+    bool enableDatabase = checkBoxEnableDatabaseFunction->checkState();
+    //emit sigDatabaseEnableState(enableDatabase);
+    //emit sigTestConnectionDatabase(ipaddressLineEdit->text(),databasenameLineEdit->text(),
+    //    tablenameLineEdit->text(), usernameLineEdit->text(),passwordLineEdit->text());
+    //testConnectionPushButton->setEnabled(false);
+    //globalConfig->setEnableDatabaseState(checkBoxEnableDatabaseFunction->checkState() == Qt::Checked ? true : false);
+    //globalConfig->setIPAddress(ipaddressLineEdit->text());
+    //globalConfig->setDataBaseName(databasenameLineEdit->text());
+    //globalConfig->setTableName(tablenameLineEdit->text());
+    //globalConfig->setUserName(usernameLineEdit->text());
+    //globalConfig->setPassWord(passwordLineEdit->text());
+}
+
+void TestQTreeQScrollArea::onEnableQrStateChanged()
+{
+    bool enableQr = checkBoxEnableQr->checkState();
+    //label->setEnabled(enableQr);
+    //saveQRcodeFolderPath->setEnabled(enableQr);
+    //qrcodeLength->setEnabled(enableQr);
+    //qrcodePrefixLength->setEnabled(enableQr);
+    //qrcodePrefix->setEnabled(enableQr);
+
+    //qrCodeLineEdit_1->setVisible(enableQr);
+    //qrCodeLineEdit_2->setVisible(enableQr);
+    //qrCodeLineEdit_3->setVisible(enableQr);
+    //qrCodeLineEdit_4->setVisible(enableQr);
+
+    //globalConfig->setOfilmTestLogEnableQr(enableQr);
+    //globalConfig->setOfilmTestLogQrCodeLength(qrcodeLength->text());
+    //globalConfig->setOfilmTestLogQrCodePreLen(qrcodePrefixLength->text());
+    //globalConfig->setOfilmTestLogQrCodePreFix(qrcodePrefix->text());
 }

@@ -46,7 +46,9 @@ public Q_SLOTS:
     void onautoMachinePortLineEdit_3Finished();
     void onautoMachineIpLineEdit_4Finished();
     void onautoMachinePortLineEdit_4Finished();
-
+    void onEnableDatabaseStateChanged();
+    void onTestConnectionPushButton();
+    void onEnableQrStateChanged();
     //void onEnableQrStateChanged();
     //void onToolModeComboBoxIndexChanged(int index);
     //void onTestConnectionPushButton();
